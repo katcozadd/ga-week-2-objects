@@ -169,16 +169,29 @@ const bondFilms = [
 // console.log(oddBonds);
 
 //3.) Determine the total cumulative gross of the Bond franchise, and console.log the result. hint To make the grosses into usable numbers, look into the .replace Javascript method (there are many ways to do this, however). Look into parseInt also.
+//Got really scrappy and will come back to this
+// let bondSum = () => {
+// 	//write a foor loop to circle through the whole array
+// 	for (let i = 0; i < bondFilms.length; i++) {
+// 		let grossInterger = bondFilms[i].gross.replace('$', '').replace(/,/g, '');
+//     let sum = 0
+// 		//write function that will add together all of the grosses together
+// 		grossInterger += bondFilms[i].gross;
+// 		console.log(grossInterger);
+// 	}
 
-let bondSum = () => {
-	//write a foor loop to circle through the whole array
-	for (let i = 0; i < bondFilms.length; i++) {
-		let grossInterger = bondFilms[i].gross.replace('$', '').replace(/,/g, '');
-		//write function that will add together all of the grosses together
-		grossInterger += bondFilms[i].gross;
-		console.log(grossInterger);
-	}
+// };
 
-};
+// bondSum();
 
-bondSum();
+let grossArray = [];
+
+for (let i = 0; i < bondFilms.length; i++) {
+  grossArray.push(bondFilms[i].gross);
+}
+let sum = 0;
+for (let i = 0; i < grossArray.length; i++) {
+sum += Number(grossArray[i].replace('$', '').replace(/,/g, ''));
+}
+
+console.log(sum);
